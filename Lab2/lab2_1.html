@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Data Visualization"/>
+    <meta name="keywords" content="HTML, CSS, D3"/>
+    <meta name="author" content="Derrick Song Jun Cheng"/>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+	<link rel="stylesheet" href="../styles.css">
+
+    <title>Task 2.1 D3 Data Binding</title>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+		<ul>
+			<li><a href="../main.html">Home</a></li>
+			<li><a href="./lab2_1.html">Lab 2.1</a></li>
+            <li><a href="./lab2_2.html">Lab 2.2</a></li>
+            <li><a href="./lab2_3.html">Lab 2.3</a></li>
+            <li><a href="./lab2_4.html">Lab 2.4</a></li>
+            <li><a href="./lab2_optional.html">Lab 2 Optional</a></li>
+		</ul>
+	</nav>
+    
+    <h1>The D3 Journey starts here...</h1>
+    <script>
+        var dataset = [14, 4 , 26, 23, 9];
+        var color1 = d3.color("red")
+
+        d3.select("body").selectAll("p")
+            .data(dataset)
+            .enter()
+            .append("p")
+            .style("color", function(d) {
+                if (d > 10) {
+                    return color1;
+                }
+            })
+            .text(function(d) {
+                if (d > 10) {
+                    return "Warning: Joe watched " + d + " cat videos today";
+                } else {
+                    return "Joe watched " + d + " cat videos today";
+                }
+            })
+
+    </script>
+    
+</body>
+</html>
