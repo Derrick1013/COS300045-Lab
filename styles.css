@@ -14,6 +14,20 @@ body {
     flex-wrap: wrap;
 }
 
+.axis path,
+.axis line {
+    fill: none;
+    stroke: teal;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: Optima, Futura, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    fill: teal;
+}
+
 .navbar ul {
     list-style: none;
     margin: 0;
