@@ -1,0 +1,85 @@
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,700,900,400italic,700italic,900italic|Playfair+Display:400,700,900,400italic,700italic,900italic|Rock+Salt:400);
+
+body {
+    margin: 2.5em;
+    background-image: url("images/book.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.chapter-title {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 3em;
+    color: grey;
+    text-align: center;
+    margin-top: 2em; /* Add this line to move the text down */
+}
+
+
+.author {
+    text-align: left;
+    font-size: 1em;
+}
+
+/** Button adepted from https://monodes.com/predaelli/2019/12/12/hand-drawn-border-buttons-in-css-%E2%84%82%F0%9D%95%A0%F0%9D%95%95%F0%9D%95%96%F0%9D%95%84%F0%9D%95%AA%F0%9D%95%8C%F0%9D%95%80/2/**/
+button {
+    align-self:center;
+    background:transparent;
+    padding: 0.7em;
+    margin-left: 1em;
+    transition:all .5s ease;
+    color:#41403E;
+    letter-spacing:1px;
+    outline:none;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    cursor:pointer;
+}
+
+button:hover{
+    box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+ } 
+
+
+.contents {
+    display: block;
+    margin-left: 1vw;
+    white-space: nowrap;
+    text-align: center;
+}
+
+p {
+    white-space: initial;
+    text-align: left;
+    margin-left: 1em;
+}
+
+.contents .content-list-title {
+    text-decoration: underline;
+    font-family: 'Crimson Text', serif;
+    font-size: 2em;
+    color: black;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.contents ul {
+    font-size: 1em;
+    list-style-type: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.contents ul li { 
+    margin-top: 10px;
+}
+
+.contents ul a {
+    text-decoration: none;
+    color: black;
+}
+
+.contents ul a:hover {
+    color: lightgray;
+}

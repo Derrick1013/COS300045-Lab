@@ -72,8 +72,8 @@
                 .text(function(d) {
                     return d.Animals;
                 })
-                .attr("x", function(d, i) {
-                    return i * (w / dataset.length) + (w / dataset.length) / 2;
+                .attr("x", function(d, i) { 
+                    return i * (w / dataset.length) + 15;
                 })
                 .attr("y", function(d) {
                     return h - (d.Animals * 4) + 15;
