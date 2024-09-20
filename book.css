@@ -54,6 +54,28 @@ p {
     margin-left: 1em;
 }
 
+.ribbon {
+    display: inline-block;
+    position: absolute;
+    left: 20px; top: 38px;
+ }
+ 
+.ribbon:before,
+.ribbon:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 10px;
+    bottom: -8px;
+    border: 18px solid #53b0de;
+ }
+ 
+.ribbon:before {
+    border-bottom-color: transparent;
+    bottom: -40px;
+}
+
+
 .contents .content-list-title {
     text-decoration: underline;
     font-family: 'Crimson Text', serif;
