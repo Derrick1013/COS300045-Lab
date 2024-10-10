@@ -33,3 +33,14 @@ ul {
 h1 {
     text-align: center;
 }
+
+.chart {
+    padding-left: 2em;
+    padding-top: 2em;
+}
+
+.line {
+    fill: none;
+    stroke: slategrey;
+    stroke-width: 0.5;
+}

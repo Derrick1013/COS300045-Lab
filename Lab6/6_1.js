@@ -16,7 +16,8 @@ var yScale = d3.scaleLinear()
 var svg = d3.select(".chart")
     .append("svg")
     .attr("width", w)
-    .attr("height", h);
+    .attr("height", h)
+    .attr("fill", "slategrey");
 
 svg.selectAll("rect")
     .data(dataset)
@@ -31,7 +32,32 @@ svg.selectAll("rect")
     .attr("width", xScale.bandwidth())
     .attr("height", function(d) {
         return h - yScale(d);
+    })
+    .on("mouseover", function(event, d) {
+        d3.select(this)
+        .transition()
+        .attr("fill", "orange")
+
+        var xPosition = parseFloat(d3.select(this).attr("x"))
+        var yPosition = parseFloat(d3.select(this).attr("y"))
+
+        svg.append("text")
+            .attr("id", "tooltip")
+            .attr("fill", "black")
+            .attr("text-anchor", "middle")
+            .attr("x", xPosition + (xScale.bandwidth() / 2))
+            .attr("y", yPosition + 15)
+            .text(d);
+    })
+    .on("mouseout", function() {
+        d3.select(this)
+        .transition()
+        .attr("fill", "slategrey")
+
+        d3.select("#tooltip").remove()
     });
+
+
 
     d3.select("button#add")
     .on("click", function() {
@@ -40,25 +66,53 @@ svg.selectAll("rect")
         xScale.domain(d3.range(dataset.length));
 
         var bars = svg.selectAll("rect")
-            .data(dataset);
+            .data(dataset)
 
-        bars.enter()
+        var barsEnter = bars.enter()
             .append("rect")
             .attr("x", w)
             .attr("y", function(d) {
-                return h - yScale(d);
+                return yScale(d);
             })
             .attr("width", xScale.bandwidth())
             .attr("height", function(d) {
-                return yScale(d);
-            })
-            .merge(bars)
+                return h - yScale(d);
+            });
+
+        bars.merge(barsEnter)
             .transition()
             .duration(500)
             .attr("x", function(d, i) {
                 return xScale(i);
             })
             .attr("width", xScale.bandwidth());
+
+            
+            svg.selectAll("rect")
+            .on("mouseover", function(event, d) {
+                d3.select(this)
+                .transition()
+                .attr("fill", "orange")
+        
+                var xPosition = parseFloat(d3.select(this).attr("x"))
+                var yPosition = parseFloat(d3.select(this).attr("y"))
+        
+                svg.append("text")
+                    .attr("id", "tooltip")
+                    .attr("fill", "black")
+                    .attr("text-anchor", "middle")
+                    .attr("x", xPosition + (xScale.bandwidth() / 2))
+                    .attr("y", yPosition + 15)
+                    .text(d);
+            })
+            .on("mouseout", function() {
+                d3.select(this)
+                .transition()
+                .attr("fill", "slategrey")
+        
+                d3.select("#tooltip").remove()
+            });
+
     });
 
 d3.select("button#remove")
